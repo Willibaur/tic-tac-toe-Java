@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>TicTacToe.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">tic-tac-toe</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">TicTacToe.java</span></div><h1>TicTacToe.java</h1><pre class="source lang-java linenums">
+<span class="fc" id="L2">public class TicTacToe {</span>
+
+<span class="fc" id="L4">    private Character[][] board = {{'\0', '\0', '\0'},</span>
+<span class="fc" id="L5">                                   {'\0', '\0', '\0'},</span>
+<span class="fc" id="L6">                                   {'\0', '\0', '\0'}};</span>
+
+<span class="fc" id="L8">    private char lastPlayer = '\0';</span>
+
+    private static final int SIZE = 3;
+
+    public String play(int x, int y) {
+<span class="fc" id="L13">        checkAxis(x);</span>
+<span class="fc" id="L14">        checkAxis(y);</span>
+
+<span class="fc" id="L16">        lastPlayer = nextPlayer();</span>
+<span class="fc" id="L17">        setBox(x, y, lastPlayer);</span>
+
+<span class="fc bfc" id="L19" title="All 2 branches covered.">        if (isWin(x, y)) {</span>
+<span class="fc" id="L20">            return lastPlayer + &quot; is the winner&quot;;</span>
+<span class="fc bfc" id="L21" title="All 2 branches covered.">        } else if (isDraw()) {</span>
+<span class="fc" id="L22">            return &quot;The result is draw&quot;;</span>
+        }
+<span class="fc" id="L24">        return &quot;No winner&quot;;</span>
+    }
+
+    private boolean isDraw() {
+<span class="fc bfc" id="L28" title="All 2 branches covered.">        for (int x = 0; x &lt; SIZE; x++) {</span>
+<span class="fc bfc" id="L29" title="All 2 branches covered.">            for (int y = 0; y &lt; SIZE; y++) {</span>
+<span class="fc bfc" id="L30" title="All 2 branches covered.">                if (board[x][y] == '\0') {</span>
+<span class="fc" id="L31">                    return false;</span>
+                }
+            }
+        }
+<span class="fc" id="L35">        return  true;</span>
+    }
+
+    private boolean isWin(int x, int y) {
+<span class="fc" id="L39">        int playerTotal = lastPlayer * SIZE;</span>
+
+        char horizontal, vertical, diagonal1, diagonal2;
+
+<span class="fc" id="L43">        horizontal = vertical = diagonal1 = diagonal2 = '\0';</span>
+
+<span class="fc bfc" id="L45" title="All 2 branches covered.">        for (int i = 0; i &lt; SIZE; i++) {</span>
+<span class="fc" id="L46">            horizontal += board[i][y-1];</span>
+<span class="fc" id="L47">            vertical   += board[x-1][i];</span>
+<span class="fc" id="L48">            diagonal1  += board[i][i];</span>
+<span class="fc" id="L49">            diagonal2  += board[i][SIZE - i - 1];</span>
+        }
+<span class="fc bfc" id="L51" title="All 8 branches covered.">        if (horizontal == playerTotal || vertical == playerTotal ||</span>
+            diagonal1  == playerTotal || diagonal2 == playerTotal  ) {
+<span class="fc" id="L53">            return true;</span>
+        }
+<span class="fc" id="L55">        return false;</span>
+    }
+
+    private void setBox(int x, int y, char lastPlayer) {
+<span class="fc bfc" id="L59" title="All 2 branches covered.">        if (board[x-1][y-1] != '\0') {</span>
+<span class="fc" id="L60">            throw new RuntimeException(&quot;Box is occupied&quot;);</span>
+        } else {
+<span class="fc" id="L62">            board[x-1][y-1] = lastPlayer;</span>
+        }
+<span class="fc" id="L64">    }</span>
+
+    private void checkAxis(int axis) {
+<span class="pc bpc" id="L67" title="1 of 4 branches missed.">        if (axis &lt; 1 || axis &gt; 3) {</span>
+<span class="fc" id="L68">            throw new RuntimeException(&quot;X is outside board&quot;);</span>
+        }
+<span class="fc" id="L70">    }</span>
+
+    public char nextPlayer() {
+<span class="fc bfc" id="L73" title="All 2 branches covered.">        if (lastPlayer == 'X') {</span>
+<span class="fc" id="L74">            return 'O';</span>
+        }
+<span class="fc" id="L76">        return 'X';</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>
