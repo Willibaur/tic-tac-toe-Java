@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="TicTacToeSpec" tests="11" skipped="0" failures="0" errors="0" timestamp="2016-04-26T18:32:40" hostname="lenovo-w530" time="0.018">
+<testsuite name="TicTacToeSpec" tests="11" skipped="0" failures="0" errors="0" timestamp="2016-04-26T20:31:16" hostname="lenovo-w530" time="0.021">
   <properties/>
-  <testcase name="givenLastTurnWasXWhenNextPlayerThenO" classname="TicTacToeSpec" time="0.002"/>
-  <testcase name="whenYOutsideBoardThenRuntimeException" classname="TicTacToeSpec" time="0.01"/>
+  <testcase name="givenLastTurnWasXWhenNextPlayerThenO" classname="TicTacToeSpec" time="0.003"/>
+  <testcase name="whenYOutsideBoardThenRuntimeException" classname="TicTacToeSpec" time="0.012"/>
   <testcase name="whenPlayAndTopBottomDiagonalLineThenWinner" classname="TicTacToeSpec" time="0.0"/>
   <testcase name="whenPlayAndWholeHorizontalLineThenWinner" classname="TicTacToeSpec" time="0.0"/>
   <testcase name="givenFirstTurnWhenNextPlayerThenX" classname="TicTacToeSpec" time="0.0"/>
@@ -10,7 +10,7 @@
   <testcase name="whenOccupiedThenRuntimeException" classname="TicTacToeSpec" time="0.0"/>
   <testcase name="whenPlayAndBottomDiagonalLineThenWinner" classname="TicTacToeSpec" time="0.0"/>
   <testcase name="whenAllBoxesAreFilledThenDraw" classname="TicTacToeSpec" time="0.0"/>
-  <testcase name="whenPlayAndWholeVerticalLineThenWinner" classname="TicTacToeSpec" time="0.001"/>
+  <testcase name="whenPlayAndWholeVerticalLineThenWinner" classname="TicTacToeSpec" time="0.0"/>
   <testcase name="whenPlayThenNoWinner" classname="TicTacToeSpec" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
